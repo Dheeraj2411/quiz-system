@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <title>Admin Categories Page</title>
     @vite('resources/css/app.css')
@@ -10,7 +11,7 @@
 <body>
     <x-navbar name={{$name}}></x-navbar>
     @if (session('category'))
-    <div class=" bg-red-800 text-white pl-5">
+    <div class=" bg-green-800 text-white pl-5">
         {{ session('category') }}
     </div>
     @endif
