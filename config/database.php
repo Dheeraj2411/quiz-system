@@ -44,6 +44,7 @@ return [
         ],
 
         'mysql' => [
+            'timezone' => '+05:30',
             'driver' => 'mysql',
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),

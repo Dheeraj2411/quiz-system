@@ -12,7 +12,7 @@
     <x-navbar name={{$name}}></x-navbar>
 
     <div class="bg-gray-100 flex flex-col  items-center pt-5 min-h-screen">
-        <h2 class="text-2xl text-center text-gray-800 mb-4 font-medium">All Current Quiz's MCQs <a
+        <h2 class="text-2xl text-center text-gray-800 mb-4 font-medium">{{$quizName}} <a
                 class="text-blue-400 text-sm  hover:text-blue-500  hover:ease-out ml-5" href="/add-quiz">Back</a>
         </h2>
 

@@ -8,7 +8,8 @@
                  href="/dashboard">Dashboard</a>
              <a class="text-gray-700 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2"
                  href="/admin-categories">Categories</a>
-             <a class="text-gray-700 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2" href="add-quiz">Quiz</a>
+             <a class="text-gray-700 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2" href="add-quiz">
+                 Add Quiz</a>
              <a class="text-gray-700 text-sm hover:bg-gray-100 rounded-md font-medium px-3 py-2" href="http#">Welcome
                  {{$name}}</a>
              <a class="text-gray-700 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2"
