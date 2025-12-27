@@ -55,7 +55,7 @@
                             <div class="text-xs text-gray-500 mb-1">Category #{{$key+1}}</div>
                             <h3 class="font-semibold text-gray-800 text-base">{{$record->name}}</h3>
                         </div>
-                        <a href="user-quiz-list/{{$record->id}}/{{$record->name}}"
+                        <a href="user-quiz-list/{{$record->id}}/{{Str::slug($record->name)}}"
                             class="ml-2 p-2 hover:bg-gray-100 rounded-full transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                                 fill="#000000">
@@ -72,6 +72,10 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+
+            <div class="mt-4 text-left">
+                {{$quizRecord->links()}}
             </div>
         </div>
     </div>

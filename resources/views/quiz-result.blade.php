@@ -12,9 +12,16 @@
 <body>
     <x-user_navbar></x-user_navbar>
     <div class="bg-gray-100 flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-8">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl text-green-900 p-5 font-bold text-center">Quiz Result</h1>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl text-green-900 py-5 font-bold text-center">Quiz Result</h1>
         <div class="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
-            <h1 class="text-xl sm:text-2xl text-green-900 text-center font-medium my-5">{{$correctAnswer}} out of
+            @if ($correctAnswer*100/count($resultData)>70)
+            <a class="font-bold text-blue-500 inline-block px-10 py-2 text-lg rounded-2xl bg-gray-200"
+                href="/certificate">View
+                and
+                download
+                Certificate</a>
+            @endif
+            <h1 class="text-xl sm:text-2xl text-green-900 text-center font-medium mb-5 mt-2">{{$correctAnswer}} out of
                 {{count($resultData)}}correct
             </h1>
 
@@ -54,7 +61,7 @@
                             <div class="text-xs text-gray-500 mb-1">Category #{{$key+1}}</div>
                             <h3 class="font-semibold text-gray-800 text-base">{{$item->name}}</h3>
                         </div>
-                        <a href="user-quiz-list/{{$item->id}}/{{$item->name}}"
+                        <a href="user-quiz-list/{{$item->id}}/{{Str::slug($item->name)}}"
                             class="ml-2 p-2 hover:bg-gray-100 rounded-full transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                                 fill="#000000">

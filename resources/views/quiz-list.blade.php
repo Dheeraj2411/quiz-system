@@ -30,7 +30,7 @@
                     <ul class="flex justify-between ">
                         <li class="w-30">{{$item->id}}</li>
                         <li class="w-140">{{$item->name}}</li>
-                        <li class="w-30"> <a href="/show-quiz/{{$item->id}}/{{$item->name}}">
+                        <li class="w-30"> <a href="/show-quiz/{{$item->id}}/{{Str::slug($item->name)}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
                                     width="20px" fill="#000000">
                                     <path

@@ -19,7 +19,7 @@
             {{$quizName}}
         </h1>
         <h2 class="text-3xl text-center text-green-800 mb-1 font-bold ">
-            Question No. {{session('currentQuiz')['totalMcq']}}
+            Question No. {{session('currentQuiz')['currentMcq']}}
         </h2>
         <h2 class="text-3xl text-center text-green-800 mb-2 font-bold ">
             {{session('currentQuiz')['currentMcq']}} of

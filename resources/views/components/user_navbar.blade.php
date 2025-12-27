@@ -8,7 +8,7 @@
          <div class="space-y-1">
              <a class="text-green-900 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2" href="/">Home</a>
              <a class="text-green-900 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2"
-                 href="#">Categories</a>
+                 href="/categories-list">Categories</a>
              @if(session('user_name'))
              <a class="text-green-900 text-sm hover:bg-gray-100 rounded-md font-medium  px-3 py-2"
                  href="/user-details">welcom

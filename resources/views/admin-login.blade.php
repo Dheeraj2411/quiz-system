@@ -17,10 +17,11 @@
         <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg w-full max-w-sm">
             <!-- Made heading responsive with smaller text on mobile -->
             <h2 class="text-xl sm:text-2xl text-center text-gray-800 mb-4 sm:mb-6 font-semibold">Admin Login page</h2>
-            @error('admin')
-            <div class="text-red-700 text-sm mb-4">{{$message}}
+            @if(session('message-error'))
+            <div class="text-red-600">
+                {{ session('message-error') }}
             </div>
-            @enderror
+            @endif
             <form action="admin-login" method="post" class="space-y-4">
                 @csrf
                 <div>

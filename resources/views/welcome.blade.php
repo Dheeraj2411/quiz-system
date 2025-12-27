@@ -2,18 +2,23 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Categories Page</title>
+    <title>Quiz System Home Page</title>
     @vite('resources/css/app.css')
 </head>
 
 <body>
     <x-user_navbar></x-user_navbar>
-    <div class="bg-gray-100 flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-8">
+    <div class="bg-gray-100 flex flex-col items-center min-h-screen px-4 sm:px-6 lg:px-8 ">
+        @if(session('message-success'))
+        <div>
+            <p class="text-green-500 font-bold ">{{session('message-success')}}</p>
+        </div>
+        @endif
         <h1 class="text-2xl sm:text-3xl lg:text-4xl text-green-900 p-5 font-bold text-center">Chech Your Skills</h1>
-        <div class="max-w-md w-full mb-6">
+        <div class="max-w-md w-full mb-4">
             <div class="relative">
                 <form action="/search-quiz" method="get">
                     <input type="text" name="search" placeholder="Search quiz... "
@@ -30,7 +35,7 @@
         </div>
 
         <div class="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl">
-            <h1 class="text-xl sm:text-2xl text-green-900 text-center font-medium my-5">Category List</h1>
+            <h1 class="text-xl sm:text-2xl text-green-900 text-center font-bold my-4">Top Category </h1>
 
             <!-- Desktop view: table layout -->
             <div class="hidden md:block">
@@ -51,7 +56,7 @@
                             <li class="flex-1 px-2">{{$category->name}}</li>
                             <li class="w-24 lg:w-32 text-center">{{$category->quizzes_count}}</li>
                             <li class="w-20 lg:w-24 flex justify-center">
-                                <a href="user-quiz-list/{{$category->id}}/{{$category->name}}"
+                                <a href="user-quiz-list/{{$category->id}}/{{Str::slug($category->name)}}"
                                     class="hover:opacity-70 transition-opacity">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
                                         width="20px" fill="#000000">
@@ -75,7 +80,7 @@
                             <div class="text-xs text-gray-500 mb-1">Category #{{$key+1}}</div>
                             <h3 class="font-semibold text-gray-800 text-base">{{$category->name}}</h3>
                         </div>
-                        <a href="user-quiz-list/{{$category->id}}/{{$category->name}}"
+                        <a href="user-quiz-list/{{$category->id}}/{{Str::slug($category->name)}}"
                             class="ml-2 p-2 hover:bg-gray-100 rounded-full transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                                 fill="#000000">
@@ -92,6 +97,41 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
+
+
+        <h2 class="text-xl sm:text-2xl  text-center text-green-900  font-bold my-6">Top Quizzes
+        </h2>
+
+        <!-- Added responsive width constraints and overflow handling -->
+        <div class="w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mb-20">
+            <!-- Made table scrollable on mobile -->
+            <div class="overflow-x-auto">
+                <ul class="border-gray-300 border-2 rounded-md min-w-full">
+                    <li class="font-bold p-2 bg-gray-50">
+                        <ul class="flex justify-between gap-2 sm:gap-4">
+                            <li class="flex-1 min-w-0 pl-2">Name</li>
+                            <li class="w-32 sm:w-50 shrink-0 text-right sm:text-left">Action</li>
+                        </ul>
+                    </li>
+
+                    @foreach ($quizData as $item )
+                    <li class="even:bg-gray-300 p-2">
+                        <ul class="flex justify-between gap-2 sm:gap-4 items-center">
+                            <li class="flex-1 min-w-0 text-sm sm:text-base wrap-break-word pl-2">{{$item->name}}
+                            </li>
+                    </li>
+                    <li class="w-32 sm:w-50 shrink-0 text-right sm:text-left">
+                        <a href="/start-quiz/{{$item->id}}/{{Str::slug($item->name)}}"
+                            class="text-green-500 hover:text-green-700 font-bold text-xs sm:text-sm inline-block">
+                            Attempt Quiz
+                        </a>
+                    </li>
+                </ul>
+                </li>
+                @endforeach
+                </ul>
             </div>
         </div>
     </div>

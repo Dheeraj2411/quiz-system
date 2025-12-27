@@ -11,7 +11,7 @@
     <x-user_navbar></x-user_navbar>
     @if(session('message-success'))
     <div>
-        <p class=" text-green-500 font-bold">{{session('message-success')}}</p>
+        <p class="text-green-500 font-bold ">{{session('message-success')}}</p>
     </div>
     @endif
     <div class="bg-gray-100 flex flex-col items-center min-h-screen pt-5">
@@ -25,11 +25,13 @@
         </h1>
 
         @if (session('user_id'))
-
-        <a type="submit" href="/mcq/{{session('firstMCQ')->id.'/'.$quizName}}"
-            class=" bg-blue-500 rounded-md px-4 py-2 my-5 text-white">
+        @if($firstMCQ)
+        <a href="/mcq/{{ $firstMCQ->id }}/{{ Str::slug($quizName) }}"
+            class="bg-blue-500 rounded-md px-4 py-2 my-5 text-white">
             Start Quiz
         </a>
+        @endif
+
         @else
         <a type="submit" href="/user-signup-quiz" class=" bg-blue-500 rounded-md px-4 py-2 my-5 text-white">
             SignUp for start Quiz

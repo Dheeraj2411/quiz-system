@@ -23,4 +23,7 @@ class Quiz extends Model
     {
         return $this->BelongsTo(Category::class);
     }
+    public function records(){
+        return $this->hasMany(Record::class);
+    }
 }

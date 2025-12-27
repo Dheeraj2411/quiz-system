@@ -56,7 +56,7 @@
                 <p class="text-green-500 font-bold text-sm sm:text-base">Total Quiz: {{$totalMCQs}}
                     @if($totalMCQs>0)
                     <a class="text-yellow-400 text-xs sm:text-sm hover:text-amber-500 hover:ease-out ml-2"
-                        href="show-quiz/{{session('quizDetails')->id}}/{{session('quizDetails')->name}}">
+                        href="show-quiz/{{session('quizDetails')->id}}/{{Str::slug(session('quizDetails')->name)}}">
                         Show MCQs
                     </a>
                     @endif
